@@ -39,6 +39,15 @@ module.exports = function (app) {
 
 	}
 
+	function title() {
+		return function (title) {
+			console.log(title);
+			return title;
+		}
+	}
+
+	app.filter('title', title);
+
 	app.controller('bookDetailsController', bookDetailsController)
 		.component('bookDetails', options);
 

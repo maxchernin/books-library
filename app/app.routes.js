@@ -29,8 +29,14 @@ module.exports = function (app) {
 		function getBooks(dataService) {
 			return dataService.getBooks()
 				.then(function (response) {
-					console.log(response);
-					return response;
+					if(response.status === 200){
+						return response.data;
+					} else {
+						console.error('cannot load books from server', err);
+					}
+				})
+				.catch(function (err) {
+					console.error('cannot load books from server', err);
 				});
 		}
 	}

@@ -3,11 +3,11 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="panel-title">{{$ctrl.bookInfo.title}} by {{$ctrl.bookInfo.author.first}}
+                    <h3 class="panel-title">{{$ctrl.bookInfo.title | title:$ctrl.bookInfo.title}} by {{$ctrl.bookInfo.author.first}}
                         {{$ctrl.bookInfo.author.last}}</h3>
                 </div>
             </div>
-            <small>Published {{$ctrl.bookInfo.published}}</small>
+            <small class="">Published {{$ctrl.bookInfo.published}}</small>
         </div>
         <div class="panel-body">
             <div ng-if="!$ctrl.isEditMode">
@@ -47,7 +47,7 @@
                     Publish Date: <input style="margin-left: 34px; width:173px" required type="date" ng-model="$ctrl.parsedBookDate"/>
                     </p>
                     Description
-                    <textarea required rows="10" cols="102" ng-model="$ctrl.bookInfo.about"></textarea>
+                    <textarea required rows="10" cols="88" ng-model="$ctrl.bookInfo.about"></textarea>
                     <br>
 
                     <!--</div>-->

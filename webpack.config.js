@@ -8,6 +8,7 @@ var ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
 var WebpackChunkHash = require("webpack-chunk-hash");
 var OpenBrowserPlugin =  require("open-browser-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports =  {
 	entry: {
 		main: './index.js',
@@ -22,13 +23,14 @@ module.exports =  {
 			rules: [
 				{
 					test: /\.scss$/,
-					use: [{
-						loader: "style-loader" // creates style nodes from JS strings
-					}, {
-						loader: "css-loader" // translates CSS into CommonJS
-					}, {
-						loader: "sass-loader" // compiles Sass to CSS
-					}]
+					use: ExtractTextPlugin.extract(
+						[{
+							loader: "style-loader" // creates style nodes from JS strings
+						}, {
+							loader: "css-loader" // translates CSS into CommonJS
+						}, {
+							loader: "sass-loader" // compiles Sass to CSS
+						}]),
 				},
 				{
 					test: /\.sass$/,
@@ -93,7 +95,12 @@ module.exports =  {
 		}),
 		new webpack.ProvidePlugin({
 			_: 'lodash'
-		})
+		}),
+		new CopyWebpackPlugin([
+			{from: 'app/assets', to: 'app/assets'},
+			{from: 'app/lib', to: 'app/lib'}
+		])
+
 	],
 	devtool: "inline-source-map",
 	devServer: {

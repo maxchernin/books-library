@@ -22,7 +22,7 @@ module.exports = function (app) {
 		});
 
 		function activate() {
-
+			//todo sort books
 		}
 
 		function deleteBookHandler(bookId) {
@@ -74,6 +74,7 @@ module.exports = function (app) {
 
 		}
 	}
+
 
 	app.controller('bookListController', bookListController)
 		.component('bookList', options);

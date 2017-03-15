@@ -1,4 +1,3 @@
-<div ng-repeat="book in $ctrl.books track by book.id | orderBy:'-title'" >
+<div ng-repeat="book in $ctrl.books track by book.id" >
     <book-details book-info="book" on-click-delete-book="$ctrl.deleteBookHandler(bookId)"></book-details>
-
 </div>

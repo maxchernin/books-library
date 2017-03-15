@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "chunk-manifest-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.4",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-loader": "^0.4.5",

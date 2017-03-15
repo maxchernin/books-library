@@ -3,6 +3,7 @@
  */
 var angular = require("angular");
 module.exports = function () {
+
 	require('./core')();
 	require('./shared')();
 	require('./booklib')();
