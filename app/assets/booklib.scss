@@ -1,3 +1,20 @@
-.panel-body input{
-    width: 100px;
+.books-list{
+  .panel-body input{
+    width: 150px;
   }
+
+}
+
+.add-book{
+  .panel-body input{
+    width: 150px;
+  }
+}
+
+input.ng-invalid {
+  background-color: #FF696B;
+}
+
+textarea.ng-invalid {
+  background-color: #FF696B;
+}

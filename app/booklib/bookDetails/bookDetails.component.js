@@ -12,16 +12,18 @@ module.exports = function (app) {
 		controller: 'bookDetailsController'
 	};
 
-	bookDetailsController.$inject = [];
-	function bookDetailsController() {
+	bookDetailsController.$inject = ['$scope'];
+	function bookDetailsController($scope) {
 		var vm = this;
 		angular.extend(vm, {
 			$onInit: activate,
+			validateField:validateField,
 			parseDate:parseDate,
 			applyChanges:applyChanges
 		});
 
 		function activate() {
+			vm.invalidForm = false;
 			vm.datesFormat = 'dddd, MMMM D, YYYY';
 			vm.isEditMode = false;
 			vm.bookInfo.published && (vm.parsedBookDate = new Date(vm.bookInfo.published));
@@ -33,20 +35,15 @@ module.exports = function (app) {
 
 		function applyChanges() {
 			parseDate(vm.parsedBookDate, vm.datesFormat);
-			vm.isEditMode = false;
+			!vm.invalidForm ? (vm.isEditMode = false) : toastr.error('Please fix invalid field', 'Error', {"progressBar": true,
+					"positionClass": "toast-bottom-right"});
 		}
 
-
-	}
-
-	function title() {
-		return function (title) {
-			console.log(title);
-			return title;
+		function validateField(input) {
+			input.$invalid && (vm.invalidForm = true);
 		}
-	}
 
-	app.filter('title', title);
+	}
 
 	app.controller('bookDetailsController', bookDetailsController)
 		.component('bookDetails', options);

@@ -18,11 +18,19 @@ module.exports = function (app) {
 	function bookLibController(dataService) {
 		var vm = this;
 		angular.extend(vm, {
-			$onInit: activate
+			$onInit: activate,
+			handleAddBook:handleAddBook
 		});
 
 		function activate() {
-			console.log(vm.books)
+
+		}
+
+		function handleAddBook(inputBook) {
+			_.findIndex(vm.books, function (book) {
+				return book.id === inputBook.id;
+			}) === -1 ? vm.books.unshift(inputBook) : toastr.error('Book already exists Try again', 'Total Failure', {"progressBar": true,
+					"positionClass": "toast-bottom-right"});
 		}
 
 	}

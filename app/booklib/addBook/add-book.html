@@ -1,0 +1,46 @@
+<div class="panel panel-primary add-book">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-9">
+                <h3 class="panel-title">Add A book</h3>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form name="addBookForm" novalidate>
+
+    <p class="">
+        Title: <input name="title" style="margin-left: 87px" type="text"
+                      ng-model="$ctrl.bookInfo.title"
+                      ng-change="$ctrl.validateField(addBookForm.title)"/> *
+    </p>
+    <p class="">
+        Author First name: <input name="firstname"  type="text"
+                                  ng-model="$ctrl.bookInfo.author.first"
+                                  ng-pattern="/^[a-zA-Z]+$/"
+                                  ng-change="$ctrl.validateField(addBookForm.firstname)"/> *
+    </p>
+    <p class="">
+        Author Last name:  <input name="lastname"  type="text"
+                                 ng-model="$ctrl.bookInfo.author.last"
+                                 ng-pattern="/^[a-zA-Z]+$/"
+                                 ng-change="$ctrl.validateField(addBookForm.lastname)"/> *
+    </p>
+    <p>
+        Publish Date: <input style="margin-left: 32px" name="date"  type="date" ng-model="$ctrl.publishDate"
+                             ng-change="$ctrl.validateField(addBookForm.date)"/> *
+    </p>
+    <p>
+        Description<br/>
+        <textarea
+                  name="about" rows="10" cols="43"
+                  ng-model="$ctrl.bookInfo.about" ng-change="$ctrl.validateField(bookDetailsForm.about)"/>
+        </textarea>
+    </p>
+            <small>* required fields</small>
+            <button type="button" class="btn btn-default"
+                    ng-click="$ctrl.addBook(addBookForm)">Add Book
+            </button>
+</form>
+    </div>
+</div>

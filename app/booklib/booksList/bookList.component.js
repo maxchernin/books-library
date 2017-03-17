@@ -30,10 +30,10 @@ module.exports = function (app) {
 			toastr.options = {
 				"closeButton": false,
 				"debug": false,
-				"newestOnTop": false,
-				"progressBar": false,
-				"positionClass": "toast-bottom-full-width",
-				"preventDuplicates": false,
+				"newestOnTop": true,
+				"progressBar": true,
+				"positionClass": "toast-bottom-right",
+				"preventDuplicates": true,
 				"onclick": null,
 				"showDuration": "300",
 				"hideDuration": "1000",
@@ -49,23 +49,7 @@ module.exports = function (app) {
 			});
 				vm.books.splice(resultIndex, 1) && $('#' + bookId).modal('hide');
 
-			toastr.options = {
-				"closeButton": false,
-				"debug": false,
-				"newestOnTop": true,
-				"progressBar": true,
-				"positionClass": "toast-bottom-right",
-				"preventDuplicates": true,
-				"onclick": null,
-				"showDuration": "300",
-				"hideDuration": "1000",
-				"timeOut": "5000",
-				"extendedTimeOut": "1000",
-				"showEasing": "swing",
-				"hideEasing": "linear",
-				"showMethod": "fadeIn",
-				"hideMethod": "fadeOut"
-			};
+
 			var msg = "Book " + vm.books[resultIndex].title + " successfully deleted";
 			setTimeout(function () {
 				toastr.success(msg, 'Great Success');

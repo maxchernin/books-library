@@ -20,7 +20,7 @@ module.exports = function (shared) {
 		});
 
 		function activate(){
-			console.log('navbar init');
+
 		}
 	}
 

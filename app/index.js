@@ -4,6 +4,7 @@
 var angular = require("angular");
 module.exports = function () {
 
+	require('./assets')();
 	require('./core')();
 	require('./shared')();
 	require('./booklib')();
@@ -15,5 +16,4 @@ module.exports = function () {
 	]);
 	require('./app.routes')(app);
 	require('./app.component')(app);
-	// angular.bootstrap(document, 'booklib');
 };

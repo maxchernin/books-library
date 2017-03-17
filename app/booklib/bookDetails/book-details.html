@@ -1,10 +1,13 @@
-<div class="row">
+<div class="row books-list">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <h3 class="panel-title">{{$ctrl.bookInfo.title | title:$ctrl.bookInfo.title}} by {{$ctrl.bookInfo.author.first}}
                         {{$ctrl.bookInfo.author.last}}</h3>
+                </div>
+                <div class="col-md-2 col-md-push-1">
+                    <span style="cursor:pointer" class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#{{$ctrl.bookInfo.id}}" aria-hidden="true"></span>
                 </div>
             </div>
             <small class="">Published {{$ctrl.bookInfo.published}}</small>
@@ -29,28 +32,36 @@
             </div>
 
             <div ng-if="$ctrl.isEditMode">
-                <form name="bookDetails" novalidate>
-                    <!--<div ng-repeat="(key, detail) in $ctrl.bookInfo" ng-if="$ctrl.displayEditDetail(key)">-->
+                <form name="bookDetailsForm" novalidate>
+
                     <p class="">
                         Title: <input style="margin-left: 87px" name="title" required type="text"
-                                      ng-model="$ctrl.bookInfo.title"/>
+                                      ng-model="$ctrl.bookInfo.title"
+                                      ng-change="$ctrl.validateField(bookDetailsForm.title)"/>
                     </p>
                     <p class="">
                         Author First name: <input name="firstname" required type="text"
-                                                  ng-model="$ctrl.bookInfo.author.first"/>
+                                                  ng-model="$ctrl.bookInfo.author.first"
+                                                  ng-pattern="/^[a-zA-Z]+$/"
+                                                  ng-change="$ctrl.validateField(bookDetailsForm.firstname)"/>
                     </p>
                     <p class="">
                         Author Last name: <input name="lastname" required type="text"
-                                                 ng-model="$ctrl.bookInfo.author.last"/>
+                                                 ng-model="$ctrl.bookInfo.author.last"
+                                                 ng-pattern="/^[a-zA-Z]+$/"
+                                                 ng-change="$ctrl.validateField(bookDetailsForm.lastname)"/>
                     </p>
                     <p>
-                    Publish Date: <input style="margin-left: 34px; width:173px" required type="date" ng-model="$ctrl.parsedBookDate"/>
+                    Publish Date: <input style="margin-left: 32px;" name="date" required type="date" ng-model="$ctrl.parsedBookDate"
+                                         ng-change="$ctrl.validateField(bookDetailsForm.date)"/>
                     </p>
+                    <p>
                     Description
-                    <textarea required rows="10" cols="88" ng-model="$ctrl.bookInfo.about"></textarea>
-                    <br>
-
-                    <!--</div>-->
+                    <textarea required
+                              name="about" rows="10" cols="70"
+                              ng-model="$ctrl.bookInfo.about" ng-change="$ctrl.validateField(bookDetailsForm.about)"/>
+                    </textarea>
+                    </p>
                 </form>
             </div>
 

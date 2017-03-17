@@ -19,7 +19,6 @@ module.exports = function (core) {
 				PUT: 'PUT',
 				DELETE: 'DELETE',
 			};
-			console.log('welcome');
 		}
 
 		function getBooks() {

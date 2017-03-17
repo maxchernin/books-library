@@ -7,15 +7,15 @@ module.exports = function (app) {
 	routerConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
 	function routerConfig($urlRouterProvider, $stateProvider) {
 		$urlRouterProvider.when('/bookLibrary', '/library');
-		$urlRouterProvider.otherwise('/library'); //todo
+		$urlRouterProvider.otherwise('/library');
 
 		$stateProvider
 			.state('bookLibrary', {
 				url: '/library',
 				template: '<nav-bar></nav-bar>' +
-				'<div class="container">' +
-							'<book-library books="ctrl.books"></book-library>' +
-				'</div>',
+							'<div class="container">' +
+								'<book-library books="ctrl.books"></book-library>' +
+							'</div>',
 				resolve: {
 					booksList: getBooks
 				},
@@ -32,7 +32,8 @@ module.exports = function (app) {
 					if(response.status === 200){
 						return response.data;
 					} else {
-						console.error('cannot load books from server', err);
+						console.error('cannot load books from server');
+						return false;
 					}
 				})
 				.catch(function (err) {
