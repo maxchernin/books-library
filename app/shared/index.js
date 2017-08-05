@@ -4,4 +4,5 @@
 module.exports = function () {
 	var shared = angular.module('booklibShared', []);
 	require('./navbar')(shared)
+	require('./spinner')(shared)
 };
