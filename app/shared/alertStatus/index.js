@@ -1,3 +1,4 @@
 module.exports = function (shared) {
-  require('./alertStatus.component')(shared);
+    require('./alertStatus.css');
+    require('./alertStatus.component')(shared);
 };

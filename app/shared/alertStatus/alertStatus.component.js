@@ -6,7 +6,7 @@ module.exports = function (shared) {
     var options = {
         restrict: 'E',
         bindings: {
-
+            data: '<'
         },
         template: require('./alertStatus.html')
 
