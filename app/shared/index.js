@@ -3,6 +3,7 @@
  */
 module.exports = function () {
 	var shared = angular.module('booklibShared', []);
-	require('./navbar')(shared)
-	require('./spinner')(shared)
+	require('./navbar')(shared);
+	require('./alertStatus')(shared);
+	require('./spinner')(shared);
 };
