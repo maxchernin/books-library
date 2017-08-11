@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'icons';
+  src: url("./icons/FullMDL2.2.41.woff") format("woff"),
+  url("./icons/FullMDL2.2.41.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.icon {
+  font-family: "icons";
+  font-style: normal;
+  vertical-align: middle;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+.icon-Round-Transperancy:before {
+  content: "\E91F";
+  font-size: 20px !important;
+  color: #ffe8cc;
+  //position: absolute;
+  //top: 25px;
+  //left:25px;
+}
+.icon-Box:before {
+  content: "\F158";
+}
+.icon-Info:before {
+  content: "\E946";
+}
+
+.inner-icon{
+  font-size: 18px;
+  position: absolute;
+  top: 24px;
+  left: 23px;
+}
+.icon-RunningIncident:before {
+  content: "\F16A";
+}
+.icon-queuedIncident:before{
+  content: "\E81C";
+}
+.icon-pendingApproval:before{
+   content: "\E13D";
+ }
+.icon-pendingMachine:before{
+  content: "\E770";
+}
+.icon-completedIncident:before{
+  content: "\E770";
+}
+.icon-disabledIncident {
+  content: "\E733"
+}
+
+.alert-status {
+  color:black;
+  font-size: 12px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: 25%;
+}
+
+.alert-status .enlarge {
+  font-size: 33px;
+  margin-right: 5px;
+}
+
+.alert-status.disabled {
+  background-color: #e6e6e6;
+}
+
+.alert-status.running {
+  background-color: #e1effa;
+}
+
+.alert-status.pending {
+ background-color: #ffe8cc;
+}
+
+.alert-status.completed {
+background-color: #7fba00;
+}
+
+.alert-status .pending .approval {
+
+}
+.alert-status .pending approval {
+
+}
+.alert-status .pending queued {
+
+}
+
+
+.top {
+  top: 0;
+}
+.bottom {
+  bottom: 0;
+}
+.right {
+  right: 0;
+}
+.left {
+  left: 0;
+}

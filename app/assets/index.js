@@ -3,4 +3,5 @@
  */
 module.exports = function () {
 	require('./booklib.scss');
+	require('./alertStatus.scss');
 };
